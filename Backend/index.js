@@ -1,10 +1,9 @@
 require("dotenv").config();
 
-// const config = require("./Config");
 const mongoose = require("mongoose");
 const connectDb = require("./config/db");
 
-// mongoose.connect(config.connectionString);
+
 
 const User = require("./models/user-model");
 const Note = require("./models/note-model");
@@ -16,7 +15,9 @@ connectDb();
 
 const jwt = require("jsonwebtoken");
 const { authenticateToken } = require("./utilities");
-// const userModel = require("./models/user-model");
+
+
+const JWT_SECRET = process.env.ACCESS_TOKEN_SECRET || 'your_fallback_secret'
 
 app.use(express.json());
 
@@ -59,7 +60,7 @@ app.post("/create-account", async (req, res) => {
 
   await user.save();
 
-  const accessToken = jwt.sign({ user }, `https://notes-app-ashy-three.vercel.app`, {
+  const accessToken = jwt.sign({ user }, JWT_SECRET, {
     expiresIn: "36000m",
   });
 
@@ -90,7 +91,7 @@ app.post("/login", async (req, res) => {
 
   if (userInfo.email == email && userInfo.password == password) {
     const user = { user: userInfo };
-    const accessToken = jwt.sign(user, `https://notes-app-ashy-three.vercel.app`, {
+    const accessToken = jwt.sign(user, JWT_SECRET, {
       expiresIn: "36000m",
     });
 
@@ -315,8 +316,10 @@ app.get("/search-notes/", authenticateToken, async (req, res) => {
   }
 });
 
-app.listen(1000, '0.0.0.0', () => {
-  console.log("Server Started...");
+const PORT = 1000;
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server Started on port ${PORT}...`);
 });
+
 
 module.exports = app;
