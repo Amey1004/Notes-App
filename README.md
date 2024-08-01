@@ -88,3 +88,7 @@ cd backend npm start
 cd frontend npm run dev
 ```
 3. Open your browser and navigate to `http://localhost:1000` (or the port specified by your React app)
+
+
+#### Contributing
+Contributions are welcome! Please feel free to submit a Pull Request.
