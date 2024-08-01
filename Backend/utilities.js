@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken')
 
 function authenticateToken(req,res,next) {
 
-   const JWT_SECRET = process.env.ACCESS_TOKEN_SECRET || 'your_fallback_secret'
+   const JWT_SECRET = process.env.ACCESS_TOKEN_SECRET || 'https://notes-app-puce-phi.vercel.app'
    const authHeader = req.headers["authorization"];
    const token = authHeader && authHeader.split(" ")[1];
 

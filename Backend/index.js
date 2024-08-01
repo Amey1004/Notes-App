@@ -17,7 +17,7 @@ const jwt = require("jsonwebtoken");
 const { authenticateToken } = require("./utilities");
 
 
-const JWT_SECRET = process.env.ACCESS_TOKEN_SECRET || 'your_fallback_secret'
+const JWT_SECRET = process.env.ACCESS_TOKEN_SECRET || 'https://notes-app-puce-phi.vercel.app'
 
 app.use(express.json());
 
