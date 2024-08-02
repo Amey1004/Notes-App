@@ -20,9 +20,8 @@ const NoteCard = ({
           </h3>
           <button
             onClick={onPinNote}
-            className={`text-gray-500 hover:text-yellow-500 ${
-              isPinned ? "text-yellow-500" : ""
-            } flex-shrink-0`}
+            className={`text-gray-500 hover:text-yellow-500 ${isPinned ? "text-yellow-500" : ""
+              } flex-shrink-0`}
           >
             <MdPushPin size={20} />
           </button>
@@ -43,14 +42,14 @@ const NoteCard = ({
         </div>
       </div>
       <div className="bg-gray-50 px-4 py-3 flex justify-end space-x-2 mt-auto">
-        <button 
-          onClick={onEdit} 
+        <button
+          onClick={onEdit}
           className="text-blue-600 hover:text-blue-800 transition-colors duration-200"
         >
           <MdEdit size={24} />
         </button>
-        <button 
-          onClick={onDelete} 
+        <button
+          onClick={onDelete}
           className="text-red-600 hover:text-red-800 transition-colors duration-200"
         >
           <MdDelete size={24} />

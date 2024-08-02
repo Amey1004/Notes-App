@@ -36,6 +36,7 @@ To run this project, you will need to add the following environment variables to
 - JSON Web Token (JWT) for authentication
 - Cors for cross-origin resource sharing
 - Dotenv for environment variable management
+- Bcrypt for password hashing
 
 ### Frontend
 - React.js

@@ -4,7 +4,6 @@ import NoteCard from "../../components/Cards/NoteCard";
 import { MdAdd } from "react-icons/md";
 import AddEditNotes from "./AddEditNotes";
 import Modal from "react-modal";
-import { useNavigate } from "react-router-dom";
 import axiosInstance from "../../utils/axiosInstance";
 import Toast from "../../components/ToastMessage/Toast";
 import EmptyCard from "../../components/EmptyCard/EmptyCard";
@@ -27,8 +26,6 @@ const Home = () => {
   const [userInfo, setUserInfo] = useState(null);
   const [isSearch, setIsSearch] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  const navigate = useNavigate();
 
   const handleEdit = (noteDetails) => {
     if (!isLoggedIn) {
@@ -176,7 +173,7 @@ const Home = () => {
         />
       </div>
 
-      <main className="container mx-auto px-4 py-8">
+      <main className="container mx-auto px-4 py-5">
         {isLoggedIn ? (
           allNotes.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -195,7 +192,7 @@ const Home = () => {
               ))}
             </div>
           ) : (
-            <div className="flex justify-center items-center h-[80vh]">
+            <div className="flex justify-center items-center h-fit">
               <EmptyCard
                 imgSrc={isSearch ? NoDataImg : AddNoteImg}
                 message={
@@ -207,7 +204,7 @@ const Home = () => {
             </div>
           )
         ) : (
-          <div className="flex justify-center items-center h-[80vh]">
+          <div className="flex justify-center items-center h-fit">
             <EmptyCard
               imgSrc={AddNoteImg}
               message="Welcome! Please log in to view and manage your notes."
@@ -233,7 +230,7 @@ const Home = () => {
             backgroundColor: "rgba(0, 0, 0, 0.5)",
           },
           content: {
-            top: "50%",
+            top: "55%",
             left: "50%",
             right: "auto",
             bottom: "auto",

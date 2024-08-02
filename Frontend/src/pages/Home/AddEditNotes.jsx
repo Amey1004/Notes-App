@@ -100,7 +100,7 @@ const AddEditNotes = ({
       </div>
 
       <div className="p-6">
-        <div className="mb-6">
+        <div className="mb-4">
           <label
             htmlFor="title"
             className="block text-sm font-medium text-gray-700 mb-1"
@@ -117,7 +117,7 @@ const AddEditNotes = ({
           />
         </div>
 
-        <div className="mb-6">
+        <div className="mb-4">
           <label
             htmlFor="content"
             className="block text-sm font-medium text-gray-700 mb-1"
@@ -128,13 +128,13 @@ const AddEditNotes = ({
             id="content"
             className="w-full text-gray-800 border-2 border-gray-200 rounded-lg focus:border-indigo-500 transition-colors duration-300 outline-none p-3 resize-none"
             placeholder="Enter note content"
-            rows={8}
+            rows={4}
             value={content}
             onChange={({ target }) => setContent(target.value)}
           />
         </div>
 
-        <div className="mb-6">
+        <div className="mb-2">
           <label
             htmlFor="tags"
             className="block text-sm font-medium text-gray-700 mb-1"
@@ -144,10 +144,10 @@ const AddEditNotes = ({
           <TagInput tags={tags} setTags={setTags} />
         </div>
 
-        {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
+        {error && <p className="text-red-500 text-sm mb-3">{error}</p>}
 
         <button
-          className="w-full bg-indigo-600 text-white py-3 px-4 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-colors duration-300 text-lg font-semibold"
+          className="w-fit bg-indigo-600 text-white py-3 px-4 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-colors duration-300 text-lg font-semibold"
           onClick={handleAddNote}
         >
           {type === "edit" ? "Update Note" : "Add Note"}
